@@ -3,7 +3,7 @@ import Student from "../moduls/student.js";
 export function getStudents(req,res){
     Student.find().then(
         (data)=>{
-            res.json(data)
+            res.status(200).json(data)
         }
     )
 }
