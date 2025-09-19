@@ -28,3 +28,16 @@ export function createUser(req,res){
      
 }) 
 }
+
+export function loginUser(req,res){
+    const email = req.body.email
+    const password =req.body.password
+
+    User.findOne((email: email)).then(
+        (user)=>{
+            console.log(user)
+        }
+    )
+
+}
+
