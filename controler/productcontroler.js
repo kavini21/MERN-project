@@ -8,7 +8,20 @@ export function getProducts(req,res){
     )
 }
 export function saveProduct(req, res){
-    console.log(req.body);
+    if(req.user == null){  //middleware ekata user eka naththam
+        res.status(403).json({
+            message : "Unauthorized user"
+        })
+        return
+    
+    }
+
+    if(req.user.role != "admin"){
+        res.status(403).json({// adminlata pamanak access denna
+            message : "Only admin can add products"
+        })
+        return
+    }
  
  const product = new Product (
     {
